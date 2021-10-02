@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package login.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "atta/usercenter/api/v1/login;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.login.v1";
+option java_outer_classname = "LoginProtoV1";
+
+
+
+service Login {
+  rpc OrdinaryUsers (OrdinaryLoginRequest) returns (OrdinaryLoginReply)  {
+    option (google.api.http) = {
+      get: "/usercenter/Login"
+    };
+  }
+}
+
+
+message OrdinaryLoginRequest {
+  string user_name = 1;
+  string password = 2;
+}
+
+
+message OrdinaryLoginReply {
+  string token = 1;
+}

@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	v1 "atta/usercenter/api/helloworld/v1"
+	v1 "atta/usercenter/api/usercenter/v1"
 	"atta/usercenter/internal/biz"
 	"github.com/go-kratos/kratos/v2/log"
 )

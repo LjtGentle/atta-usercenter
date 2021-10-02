@@ -1,7 +1,7 @@
 package server
 
 import (
-	v1 "atta/usercenter/api/helloworld/v1"
+	v1 "atta/usercenter/api/usercenter/v1"
 	"atta/usercenter/internal/conf"
 	"atta/usercenter/internal/service"
 	"github.com/go-kratos/kratos/v2/log"
