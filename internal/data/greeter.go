@@ -19,10 +19,10 @@ func NewGreeterRepo(data *Data, logger log.Logger) biz.UserCenterRepo {
 	}
 }
 
-func (r *userCenterRepo) CreateGreeter(ctx context.Context, u *biz.UserCenter) error {
+func (r *userCenterRepo) CreateUserCenter(ctx context.Context, u *biz.UserCenter) error {
 	return nil
 }
 
-func (r *userCenterRepo) UpdateGreeter(ctx context.Context, u *biz.UserCenter) error {
+func (r *userCenterRepo) UpdateUserCenter(ctx context.Context, u *biz.UserCenter) error {
 	return nil
 }

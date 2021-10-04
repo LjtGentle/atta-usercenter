@@ -8,8 +8,8 @@ import (
 type UserCenter struct {}
 
 type UserCenterRepo interface {
-	CreateGreeter(context.Context, *UserCenter) error
-	UpdateGreeter(context.Context, *UserCenter) error
+	CreateUserCenter(context.Context, *UserCenter) error
+	UpdateUserCenter(context.Context, *UserCenter) error
 }
 
 type UserCenterCase struct {
@@ -22,9 +22,9 @@ func NewUserCenterUseCase(repo UserCenterRepo, logger log.Logger) *UserCenterCas
 }
 
 func (uc *UserCenterCase) Create(ctx context.Context, u *UserCenter) error {
-	return uc.repo.CreateGreeter(ctx, u)
+	return uc.repo.CreateUserCenter(ctx, u)
 }
 
 func (uc *UserCenterCase) Update(ctx context.Context, u *UserCenter) error {
-	return uc.repo.UpdateGreeter(ctx, u)
+	return uc.repo.UpdateUserCenter(ctx, u)
 }
