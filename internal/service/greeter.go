@@ -9,24 +9,41 @@ import (
 )
 
 // GreeterService is a greeter service.
-type GreeterService struct {
-	v1.UnimplementedGreeterServer
-
-	uc  *biz.GreeterUsecase
+type UserCenterService struct {
+	v1.UnimplementedLoginServer
+	v1.UnimplementedApplyServer
+	v1.UnimplementedRegisterServer
+	uc *biz.UserCenterCase
 	log *log.Helper
 }
 
-// NewGreeterService new a greeter service.
-func NewGreeterService(uc *biz.GreeterUsecase, logger log.Logger) *GreeterService {
-	return &GreeterService{uc: uc, log: log.NewHelper(logger)}
+// NewUserCenterService new a UserCenter service.
+func NewUserCenterService(uc *biz.UserCenterCase, logger log.Logger) *UserCenterService {
+	return &UserCenterService{uc: uc, log: log.NewHelper(logger)}
 }
 
-// SayHello implements helloworld.GreeterServer
-func (s *GreeterService) SayHello(ctx context.Context, in *v1.HelloRequest) (*v1.HelloReply, error) {
-	s.log.WithContext(ctx).Infof("SayHello Received: %v", in.GetName())
 
-	if in.GetName() == "error" {
-		return nil, v1.ErrorUserNotFound("user not found: %s", in.GetName())
-	}
-	return &v1.HelloReply{Message: "Hello " + in.GetName()}, nil
+func (s *UserCenterService) RealNameVerification (ctx context.Context, in *v1.RealNameVerificationRequest) ( *v1.RealNameVerificationReply, error) {
+	//TODO to be completed
+	return nil,nil
+}
+
+func (s *UserCenterService) BecomeGameCoach (ctx context.Context, in *v1.BecomeGameCoachRequest) (*v1.BecomeGameCoachReply,error) {
+	//TODO to be completed
+	return nil,nil
+}
+
+func (s *UserCenterService) OrdinaryLogin (ctx context.Context, in *v1.OrdinaryLoginRequest ) (*v1.OrdinaryLoginReply,error) {
+	//TODO to be completed
+	return nil,nil
+}
+
+func (s *UserCenterService) AdminLogin (ctx context.Context, in *v1.AdminLoginRequest) (*v1.AdminLoginReply,error) {
+	//TODO to be completed
+	return nil,nil
+}
+
+func (s *UserCenterService) OrdinaryRegister (ctx context.Context, in *v1.OrdinaryRegisterRequest) (*v1.OrdinaryRegisterReply,error) {
+	//TODO to be completed
+	return nil,nil
 }

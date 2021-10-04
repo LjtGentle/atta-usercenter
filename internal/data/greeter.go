@@ -1,28 +1,28 @@
 package data
 
 import (
-	"context"
 	"atta/usercenter/internal/biz"
+	"context"
 	"github.com/go-kratos/kratos/v2/log"
 )
 
-type greeterRepo struct {
+type userCenterRepo struct {
 	data *Data
 	log  *log.Helper
 }
 
 // NewGreeterRepo .
-func NewGreeterRepo(data *Data, logger log.Logger) biz.GreeterRepo {
-	return &greeterRepo{
+func NewGreeterRepo(data *Data, logger log.Logger) biz.UserCenterRepo {
+	return &userCenterRepo{
 		data: data,
 		log:  log.NewHelper(logger),
 	}
 }
 
-func (r *greeterRepo) CreateGreeter(ctx context.Context, g *biz.Greeter) error {
+func (r *userCenterRepo) CreateGreeter(ctx context.Context, u *biz.UserCenter) error {
 	return nil
 }
 
-func (r *greeterRepo) UpdateGreeter(ctx context.Context, g *biz.Greeter) error {
+func (r *userCenterRepo) UpdateGreeter(ctx context.Context, u *biz.UserCenter) error {
 	return nil
 }
