@@ -12,13 +12,64 @@ option java_outer_classname = "LoginProtoV1";
 
 
 service Login {
-  rpc OrdinaryUsers (OrdinaryLoginRequest) returns (OrdinaryLoginReply)  {
+ // 普通用户登录
+  rpc OrdinaryLogin (OrdinaryLoginRequest) returns (OrdinaryLoginReply)  {
     option (google.api.http) = {
-      get: "/usercenter/Login"
+      get: "/userCenter/ordinaryLogin"
+    };
+  }
+  // 管理员登录
+  rpc AdminLogin(AdminLoginRequest) returns (AdminLoginReply) {
+    option (google.api.http) = {
+      get: "/userCenter/adminLogin"
+    };
+  }
+
+}
+
+service Register {
+  // 注册普通用户
+  rpc OrdinaryRegister (OrdinaryRegisterRequest) returns (OrdinaryRegisterReply) {
+    option (google.api.http) = {
+      post: "/userCenter/ordinaryRegister"
+      body: "message"
     };
   }
 }
 
+service Apply {
+  // 实名验证申请
+  rpc RealNameVerification (RealNameVerificationRequest) returns (RealNameVerificationReply) {
+    option (google.api.http) = {
+      post: "/userCenter/RealNameVerification"
+      body: "message"
+    };
+  }
+  // 成为陪玩申请
+  rpc BecomeGameCoach (BecomeGameCoachRequest) returns (BecomeGameCoachReply) {
+    option (google.api.http) = {
+      post: "/userCenter/BecomeGameCoach"
+      body: "message"
+    };
+  }
+}
+
+message BecomeGameCoachRequest {
+  string game_name = 1;
+  string level = 2;
+  bytes level_picture = 3;
+}
+
+message BecomeGameCoachReply {}
+
+message RealNameVerificationRequest {
+  string real_name = 1; // 真名
+  string id_card_number = 2; // 身份证号码
+  bytes id_card_front = 3; // 身份证正面
+  bytes id_card_reverse = 4; // 身份证反面
+  bytes picture = 5; // 本人照片
+}
+message RealNameVerificationReply {}
 
 message OrdinaryLoginRequest {
   string user_name = 1;
@@ -29,3 +80,19 @@ message OrdinaryLoginRequest {
 message OrdinaryLoginReply {
   string token = 1;
 }
+
+message AdminLoginRequest {
+  string user_name = 1;
+  string password = 2;
+}
+
+message AdminLoginReply {
+  string token = 1;
+}
+
+message OrdinaryRegisterRequest {
+  string user_name = 1;
+  string password = 2;
+  string code = 3;
+}
+message OrdinaryRegisterReply {}
