@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package login.v1;
+package v1;
 
 import "google/api/annotations.proto";
 
-option go_package = "atta/usercenter/api/v1/login;v1";
+option go_package = "atta/usercenter/api/v1";
 option java_multiple_files = true;
-option java_package = "dev.kratos.api.login.v1";
-option java_outer_classname = "LoginProtoV1";
+option java_package = "dev.kratos.api.v1";
+option java_outer_classname = "V1";
 
 
 
