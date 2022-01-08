@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package helloworld.v1;
+package v1;
 import "errors/errors.proto";
 
-option go_package = "atta/usercenter/api/usercenter/v1;v1";
+option go_package = "atta/usercenter/api/v1";
 option java_multiple_files = true;
-option java_package = "usercenter.v1.errors";
+option java_package = "usercenter.v1";
 option objc_class_prefix = "APIUsercenterErrors";
 
 enum ErrorReason {
